@@ -1,7 +1,8 @@
 // https://aka.ms/devcontainer.json
 {
-	"name": "Docker Devcontainer",
-	"image": "mcr.microsoft.com/vscode/devcontainers/base:0-ubuntu-22.04",
+	"name": "Base Container with Docker",
+	// `http https://mcr.microsoft.com/v2/vscode/devcontainers/base/tags/list | fzf`
+  "image": "mcr.microsoft.com/devcontainers/base:dev-ubuntu",
 
 	"forwardPorts": [],
 	"remoteUser": "vscode",

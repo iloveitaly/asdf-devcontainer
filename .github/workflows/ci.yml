@@ -3,7 +3,7 @@ name: ci
 on:
   push:
     branches:
-      - 'master'
+      - 'main'
   schedule:
     # run every month to rebuild on the latest tag
     - cron: '0 0 1 * *'

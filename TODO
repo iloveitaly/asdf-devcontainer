@@ -1,0 +1,6 @@
+- [ ] How do you unit test a dockerfile? There's got to be a test suite to move test.sh into
+  - [ ] this could be it? https://semaphoreci.com/blog/structure-testing-for-docker-containers
+- [ ] Support installing dotfiles via an optional arg. This way you get a fully-built dev environment with your dotfiles installed.
+  - [ ] I wonder if devcontainers has a canonical way to do this.
+- [ ] asdf version matrix in ci build
+- [ ] build against multiple base variants

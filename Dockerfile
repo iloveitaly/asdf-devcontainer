@@ -1,9 +1,13 @@
-# docker build -t asdf-devcontainer .
+# docker build -t asdf-devcontainer . --build-arg dev-ubuntu
 
-FROM mcr.microsoft.com/vscode/devcontainers/base:0-ubuntu-22.04
+ARG VARIANT="0-ubuntu-22.04"
+FROM mcr.microsoft.com/vscode/devcontainers/base:${VARIANT}
 
-LABEL maintainer="Michael Bianco <mike@mikebian.co>"
-LABEL org.opencontainers.image.source=https://github.com/iloveitaly/asdf-devcontainer
+LABEL org.opencontainers.image.authors="Michael Bianco <mike@mikebian.co>" \
+      org.opencontainers.image.source=https://github.com/iloveitaly/asdf-devcontainer \
+      org.opencontainers.image.licenses="MIT" \
+      org.opencontainers.image.title="ASDF Devcontainer Image" \
+      org.opencontainers.image.description="A Docker image for use with VS Code's Remote Containers extension or GitHub codespaces."
 
 # adding a bunch of packages to avoid warnings and build errors over the main languages I use with asdf
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
@@ -33,12 +37,17 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     postgresql-client \
     lzma-dev \
     liblzma-dev \
+    automake \
+    # php support: it requires a bunch of different packages to successfully compile
     libbison-dev \
     bison \
     re2c \
     locate \
-    libxml2 \
-    automake
+    # https://stackoverflow.com/questions/37321397/no-package-libxml-2-0-found
+    libxml++2.6-dev \
+    libonig-dev \
+    libzip-dev \
+    libgd-dev
 
 COPY ./asdf-post-install.sh /asdf-post-install.sh
 

@@ -2,6 +2,9 @@
 
 FROM mcr.microsoft.com/vscode/devcontainers/base:0-ubuntu-22.04
 
+LABEL maintainer="Michael Bianco <mike@mikebian.co>"
+LABEL org.opencontainers.image.source=https://github.com/iloveitaly/asdf-devcontainer
+
 # adding a bunch of packages to avoid warnings and build errors over the main languages I use with asdf
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install --no-install-recommends \
@@ -32,6 +35,9 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     liblzma-dev \
     libbison-dev \
     bison \
+    re2c \
+    locate \
+    libxml2 \
     automake
 
 COPY ./asdf-post-install.sh /asdf-post-install.sh
@@ -40,5 +46,4 @@ COPY ./asdf-post-install.sh /asdf-post-install.sh
 USER vscode
 RUN git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2
 
-# RUN echo -e "\n. $HOME/.asdf/asdf.sh\n" | tee --append ~/.bashrc ~/.profile
-RUN echo -e "\n. $HOME/.asdf/asdf.sh\n" >> ~/.profile
+RUN echo "\n. $HOME/.asdf/asdf.sh\n" | tee -a ~/.bashrc ~/.profile

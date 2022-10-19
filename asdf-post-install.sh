@@ -2,8 +2,6 @@
 
 cd "${0%/*}/.."
 
-source "$HOME/.asdf/asdf.sh"
-
 if [ -z "$CODESPACE_VSCODE_FOLDER" ]; then
   echo "CODESPACE_VSCODE_FOLDER is not defined, defaulting to $HOME"
   CODESPACE_VSCODE_FOLDER="$HOME"

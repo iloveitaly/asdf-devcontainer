@@ -21,5 +21,6 @@ done
 
 # automatically startup a docker-compose that exists in the devcontainer folder
 if test -f $CODESPACE_VSCODE_FOLDER/.devcontainer/docker-compose.yml; then
-  docker compose up -d
+  echo "docker-compose found, starting up"
+  (cd $CODESPACE_VSCODE_FOLDER/.devcontainer && docker compose up -d)
 fi

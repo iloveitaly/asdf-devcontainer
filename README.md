@@ -15,10 +15,10 @@ Main design goals:
   negative side effects with this approach.
 * Fix homebrew not working due to out of date image. This means `apt-get update` in the build, combined with a monthly
   gh actions cron, fixes this.
-* Easily install all asdf plugins used in a project. `/asdf-post-install.sh` finds all `.tool-versions` included in the repo
+* Easily install all asdf plugins used in a project. `/asdf-post-create.sh` finds all `.tool-versions` included in the repo
   and installs the relevant asdf plugins.
 * Easily start `docker-compose` services. For instance, if your project requires postgres + redis, you can include a `docker-compose.yml`
-  file in `.devcontainer/` and it will be started when you run `/asdf-post-install.sh`.
+  file in `.devcontainer/` and it will be started when you run `/asdf-post-create.sh`.
 
 Here are the languages I've confirmed compile and run via asdf on this image:
 

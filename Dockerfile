@@ -52,7 +52,7 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     libzip-dev \
     libgd-dev
 
-COPY ./asdf-post-install.sh /asdf-post-install.sh
+COPY ./asdf-post-create.sh /asdf-post-create.sh
 
 # https://github.com/erlang/erlang-org/blob/f5538eea5546884097ef66ef29a6ae7a8d874069/.devcontainer/Dockerfile#L18
 USER vscode

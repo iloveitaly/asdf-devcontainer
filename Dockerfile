@@ -3,6 +3,9 @@
 ARG VARIANT="0-ubuntu-22.04"
 FROM mcr.microsoft.com/vscode/devcontainers/base:${VARIANT}
 
+# needs to be declared *after* FROM to be available in shell scripts
+ARG ASDF_BRANCH="v0.10.2"
+
 LABEL org.opencontainers.image.authors="Michael Bianco <mike@mikebian.co>" \
       org.opencontainers.image.source=https://github.com/iloveitaly/asdf-devcontainer \
       org.opencontainers.image.licenses="MIT" \
@@ -53,6 +56,8 @@ COPY ./asdf-post-install.sh /asdf-post-install.sh
 
 # https://github.com/erlang/erlang-org/blob/f5538eea5546884097ef66ef29a6ae7a8d874069/.devcontainer/Dockerfile#L18
 USER vscode
-RUN git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2
+RUN git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch ${ASDF_BRANCH}
 
+# including the asdf source in sh + bash profiles make it easier to run boostrap scripts
+# which expect `asdf` to be available
 RUN echo "\n. $HOME/.asdf/asdf.sh\n" | tee -a ~/.bashrc ~/.profile

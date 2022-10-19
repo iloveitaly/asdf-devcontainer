@@ -45,7 +45,7 @@ jobs:
           push: true
           # amd64 supports x86_64
           platforms: linux/amd64,linux/arm64
-          tags: ${{ github.event.repo.name }}:${{ matrix.variant }}
+          tags: ${{ github.event.repo.full_name }}:${{ matrix.variant }}
           labels: ${{ steps.meta.outputs.labels }}
       -
         name: Update repo description

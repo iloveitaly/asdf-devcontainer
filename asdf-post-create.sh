@@ -2,10 +2,10 @@
 
 cd "${0%/*}/.."
 
-# when running in a codespace, this should always be set
+# this is not set during `postCreateCommand`, it is injected into the environment by extension JS
 if [ -z "$CODESPACE_VSCODE_FOLDER" ]; then
-  echo "CODESPACE_VSCODE_FOLDER is not defined, defaulting to $HOME"
-  CODESPACE_VSCODE_FOLDER="$HOME"
+  CODESPACE_VSCODE_FOLDER=$(find /workspaces -maxdepth 1 -mindepth 1 -type d -not -path '*/\.*' -print -quit)
+  echo "CODESPACE_VSCODE_FOLDER is not defined, using derived folder $CODESPACE_VSCODE_FOLDER"
 fi
 
 # find all .tool-versions within the repo, but ignore all hidden directories

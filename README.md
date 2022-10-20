@@ -63,3 +63,4 @@ Easiest way to iterate on this image is to setup a codespace and rebuild the Doc
 * Run a shell inside the image `docker run --rm -it asdf-devcontainer bash -lc `
 * Get github webhook structure for github actions development `gh api repos/iloveitaly/asdf-devcontainer/events`
 * [View all available devcontainer features](https://github.com/devcontainers/features/tree/main/src)
+* [Devcontainers open source spec](https://containers.dev/implementors/json_reference/)

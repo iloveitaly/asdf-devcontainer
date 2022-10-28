@@ -1,0 +1,18 @@
+{
+	"name": "ASDF Dev Container with Postgres and Redis via Docker Compose",
+	"image": "iloveitaly/asdf-devcontainer:0-ubuntu-22.04",
+	"forwardPorts": [6379, 5432],
+	"postCreateCommand": "/asdf-post-create.sh",
+
+	"remoteUser": "vscode",
+	"features": {
+		"homebrew": "latest",
+		"ghcr.io/devcontainers/features/sshd:1": {
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers/features/docker-in-docker:1": {
+			"version": "latest",
+			"dockerDashComposeVersion":"v2"
+		}
+	}
+}

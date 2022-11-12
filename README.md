@@ -8,6 +8,8 @@ This project builds a devcontainer image (for use with GitHub Codespace) setup w
 utility script for installing all asdf plugins, finding all `.tool-versions` files, installing the versions specified,
 and starting up a `docker-compose.yml` if one exists.
 
+[Here's my blog post which walks through this in details.]([url](http://mikebian.co/my-experience-with-github-codespaces/))
+
 Main design goals:
 
 * Include all relevant packages that most popular languages require for install. The `Dockerfile` is very aggressive with
@@ -32,7 +34,19 @@ Here are the languages I've confirmed compile and run via asdf on this image:
 
 ## Usage
 
-Check out `devcontainer-example`. Use it in your project with `cp -R ~/Projects/asdf-devcontainer/devcontainer-example your-new-project/.devcontainer`.
+Check out `devcontainer-example` folder for how to use this in your application.
+
+Here's how to easily copy the example into your project:
+
+```shell
+mkdir .devcontainer && cd .devcontainer && curl https://codeload.github.com/iloveitaly/asdf-devcontainer/tar.gz/main | tar -xz --strip=2 asdf-devcontainer-main/devcontainer-example
+```
+
+If you clone the repo locally, here's a quick script to copy:
+
+```shell
+cp -R ~/Projects/asdf-devcontainer/devcontainer-example your-new-project/.devcontainer
+```
 
 Here's what your `devcontainer.json` should look like:
 

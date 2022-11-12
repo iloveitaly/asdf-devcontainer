@@ -8,7 +8,7 @@ This project builds a devcontainer image (for use with GitHub Codespace) setup w
 utility script for installing all asdf plugins, finding all `.tool-versions` files, installing the versions specified,
 and starting up a `docker-compose.yml` if one exists.
 
-[Here's my blog post which walks through this in details](http://mikebian.co/my-experience-with-github-codespaces/)
+[Here's my blog post which walks through this in detail.](http://mikebian.co/my-experience-with-github-codespaces/)
 
 Main design goals:
 

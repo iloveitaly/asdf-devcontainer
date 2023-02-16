@@ -16,7 +16,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        variant: [0-ubuntu-22.04]
+        # TODO update these variants as time goes on
+        variant: [0-ubuntu-22.04, 0-ubuntu, 0-debian, buster, bullseye]
     steps:
       - uses: actions/checkout@v3
       -
